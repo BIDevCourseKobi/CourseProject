@@ -30,8 +30,19 @@ For the tables creation I used a Python code to pull the data from the web with 
 
 ![image](https://user-images.githubusercontent.com/93876043/141200304-d53089f3-4ef4-4dfe-9342-187e12a70756.png)
 
+For pulling the data from a webpage I used a 'BeatifulSoup' library that works well with web data and also used 'requestes' and 'urllib' to connect to the data, then I transferred the data to a dataframe using Pandas library.
+
+For other ETL processes I used regular expressions 're'/ 'Numpy'/'Pandas' libraries to remove some unwanted characters from some columns and replace nulls with zeros and finally convert the types of some columns to integers.
+
 With sqlalchemy library I created and inserted dataframes to my 'Covid_19' DB, this is the code for the first df I inserted:
 
 ![image](https://user-images.githubusercontent.com/93876043/141200827-0a6e3ae7-1694-4422-a74d-c8e2ad769ce7.png)
+
+And finally I user SQL server management studio to create a view that takes the latest data from the table '[Fact_Corona_Updated_source3] the data from the tables
+
+![image](https://user-images.githubusercontent.com/93876043/141202941-87206fcc-b3ad-4b1a-a29e-6001babec3c1.png)
+
+
+
 
 
