@@ -6,6 +6,8 @@ from sqlalchemy import create_engine
 import urllib
 import re
 import numpy as np
+import datetime
+from datetime import datetime, timedelta
 
 """The Worldometer URL for corona updates"""
 URL = "https://www.worldometers.info/coronavirus/"
@@ -100,6 +102,7 @@ df = pd.DataFrame({'Country ID': CountryID, 'Country': Country, 'Total Cases': T
                    'Active Cases': ActiveCases, 'Serious/Critical': SeriousCritical, 'Tot Cases/ 1M pop': TotCases1Mpop,
                    'Tot Deaths/ 1M pop': TotDeaths1Mpop, 'Total Tests': TotalTests, 'Tot Tests/ 1M pop': Tests1MPop,
                    'Population': Population})
+# remove the lines of the continents
 df = df.iloc[8:]
 
 # convetring values to int and removes plus signs
@@ -125,3 +128,63 @@ df_countries = df[['Country ID', 'Country']].drop_duplicates()
 # insert dim countries to sql server db
 df_countries.to_sql('Dim_Countries', schema='dbo', con=engine, chunksize=200, method='multi', index=False,
                     if_exists='replace')
+
+# Source2
+
+yesterday = datetime.now() - timedelta(1)
+yesterday = datetime.strftime(yesterday, '%m-%d-%Y')
+url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{}.csv".format(
+    yesterday)
+df2 = pd.read_csv(url)
+df2 = df2.drop(df2.columns[[0, 1, 2, 11]], axis=1)
+# df2.head()
+for column in df2:
+    if column != 'Country_Region' and column != 'Last_Update' and column != 'Lat' and column != 'Long_':
+        # removing each char other than number from cell
+        # df2[column]=df2[column].str.replace(r'[^0-9]+', '')
+        # replace field that's entirely space (or empty) with NaN
+        df2 = df2.replace(r'^\s*$', np.nan, regex=True)
+        # replacing nan with 0
+        df2[column] = df2[column].fillna(0)
+        # convert the column to int
+        df2[column] = df2[column].astype(int)
+
+    # create set of parameters from connection (server, db name)
+# quoted = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=DESKTOP-0H19J77;DATABASE=Covid_19")
+# creates sql engine
+# engine = create_engine('mssql+pyodbc:///?odbc_connect={}'.format(quoted))
+# insert df to sql server db (fact)
+df2.to_sql('Fact_Corona_Updated_source2', schema='dbo', con=engine, index=False, if_exists='replace')
+
+# Source3
+
+df3 = pd.read_csv("https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv")
+df3 = df3.drop(df3.columns[[0, 1, 33]], axis=1)
+
+for column in df3:
+    if column != 'location' and column != 'date':
+        # removing each char other than number from cell
+        # df2[column]=df2[column].str.replace(r'[^0-9]+', '')
+        # replace field that's entirely space (or empty) with NaN
+        df3 = df3.replace(r'^\s*$', np.nan, regex=True)
+        # replacing nan with 0
+        df3[column] = df3[column].fillna(0)
+        # convert the column to int
+    # df3[column]=df3[column].astype(int)
+df3['total_cases'] = df3['total_cases'].astype(int)
+df3['new_cases'] = df3['new_cases'].astype(int)
+df3['total_deaths'] = df3['total_deaths'].astype(int)
+df3['new_deaths'] = df3['new_deaths'].astype(int)
+df3['new_deaths'] = df3['new_deaths'].astype(int)
+df3['female_smokers'] = df3['female_smokers'].astype(int)
+df3['male_smokers'] = df3['male_smokers'].astype(int)
+df3['handwashing_facilities'] = df3['handwashing_facilities'].astype(int)
+
+# create set of parameters from connection (server, db name)
+# quoted = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=DESKTOP-0H19J77;DATABASE=Covid_19")
+# creates sql engine
+# engine = create_engine('mssql+pyodbc:///?odbc_connect={}'.format(quoted))
+# insert df to sql server db (fact)
+df3.to_sql('Fact_Corona_Updated_source3', schema='dbo', con=engine, index=False, if_exists='replace')
+
+print('Done')
