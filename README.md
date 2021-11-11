@@ -71,7 +71,7 @@ The data from [The Worldometer URL for corona updates](https://www.worldometers.
 
 ### DWH
 
-Same data as on previous dashboard but this time the data arrived after the full ETL process that was mentioned before, the data was imported from a SQL database.
+Same data as on previous dashboard (Except this data is from 'Now' table) but this time the data arrived after the full ETL process that was mentioned before, the data was imported from a SQL database.
 
 ### Vaccinations
 
