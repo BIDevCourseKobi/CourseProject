@@ -9,9 +9,9 @@ For the project I used 3 different sources:
 
 [The Worldometer URL for corona updates - Scrapper](https://www.worldometers.info/coronavirus/)
 
-[csse_covid_19_data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports)
+[csse_covid_19_data - GitHub](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports)
 
-[Our World in Data (owid-covid-data.csv)](https://github.com/owid/covid-19-data/tree/master/public/data)
+[Our World in Data (GitHub - owid-covid-data.csv)](https://github.com/owid/covid-19-data/tree/master/public/data)
 
 ## Technologies
 For the project I used the following technologies:
