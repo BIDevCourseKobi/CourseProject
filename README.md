@@ -13,8 +13,8 @@ For the project I used 3 different sources:
 
 [Our World in Data (owid-covid-data.csv)](https://github.com/owid/covid-19-data/tree/master/public/data)
 
-## Softwares/IDE
-For the project I used the following softwares:
+## Technologies
+For the project I used the following technologies:
 
 1. Microsoft Power BI
 2. Microsoft SQL Server Management Studio
