@@ -7,7 +7,7 @@ This is the final BI Developer course project, it contains the following items:
 ## Data Sources
 For the project I used 3 different sources:
 
-[The Worldometer URL for corona updates](https://www.worldometers.info/coronavirus/)
+[The Worldometer URL for corona updates - Scrapper](https://www.worldometers.info/coronavirus/)
 
 [csse_covid_19_data](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports)
 
