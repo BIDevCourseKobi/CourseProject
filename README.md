@@ -65,7 +65,7 @@ I created 3 dashboards:
 
 ### Web
 
-The data from [The Worldometer URL for corona updates](https://www.worldometers.info/coronavirus/) that show today's worldly covid data, for this I used Power BI to import the data from a web page and all the ETL was done in Power Query.
+The data from [The Worldometer URL for corona updates](https://www.worldometers.info/coronavirus/) that show today's worldly covid data, for this I used Power BI to import the data from a web page (Yesterday's Data) and all the ETL was done in Power Query.
 
 ![image](https://user-images.githubusercontent.com/93876043/141204630-032d0f51-1363-4c3d-8348-9b1c8c5b7842.png)
 
