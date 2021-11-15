@@ -50,7 +50,7 @@ To schedule the data I used the windows 10 Task Scheduler to run daily the 'Covi
 
 I created a new action to run the Python script
 
-![image](https://user-images.githubusercontent.com/93876043/141203980-6722d089-5e5e-45db-8bf5-1e5b11d2c42f.png)
+![image](https://user-images.githubusercontent.com/93876043/141819832-8fa9edcb-de99-4c7b-8d57-2a10cc4d0e85.png)
 
 And added a trigger to run the file daily at 9:00AM (GMT+2)
 
