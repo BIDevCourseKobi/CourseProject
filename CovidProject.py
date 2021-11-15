@@ -150,7 +150,7 @@ for column in df2:
         df2[column] = df2[column].astype(int)
 
     # create set of parameters from connection (server, db name)
-# quoted = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=DESKTOP-0H19J77;DATABASE=Covid_19")
+# quoted = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=******;DATABASE=Covid_19")
 # creates sql engine
 # engine = create_engine('mssql+pyodbc:///?odbc_connect={}'.format(quoted))
 # insert df to sql server db (fact)
@@ -181,7 +181,7 @@ df3['male_smokers'] = df3['male_smokers'].astype(int)
 df3['handwashing_facilities'] = df3['handwashing_facilities'].astype(int)
 
 # create set of parameters from connection (server, db name)
-# quoted = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=DESKTOP-0H19J77;DATABASE=Covid_19")
+# quoted = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=********;DATABASE=Covid_19")
 # creates sql engine
 # engine = create_engine('mssql+pyodbc:///?odbc_connect={}'.format(quoted))
 # insert df to sql server db (fact)
