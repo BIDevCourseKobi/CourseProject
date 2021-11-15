@@ -37,7 +37,7 @@ For other ETL processes I used regular expressions 're'/ 'Numpy'/'Pandas' librar
 
 With sqlalchemy library I created and inserted dataframes to my 'Covid_19' DB, this is the code for the first df I inserted:
 
-![image](https://user-images.githubusercontent.com/93876043/141200827-0a6e3ae7-1694-4422-a74d-c8e2ad769ce7.png)
+![image](https://user-images.githubusercontent.com/93876043/141815032-2153d9c4-456c-42b2-a4d0-6a9474986275.png)
 
 And finally I user SQL server management studio to create a view that takes the latest data from the table '[Fact_Corona_Updated_source3] with the grouped data by country from the table '[Fact_Corona_Updated_source2]' and present the total confirmed cases and the new cases.
 
