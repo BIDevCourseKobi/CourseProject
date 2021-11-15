@@ -46,7 +46,7 @@ And finally I user SQL server management studio to create a view that takes the 
 ## Schedule
 To schedule the data I used the windows 10 Task Scheduler to run daily the 'CovidProject.py' file
 
-![image](https://user-images.githubusercontent.com/93876043/141203738-fd3754c6-afde-4c1b-9cba-e7b668175622.png)
+![image](https://user-images.githubusercontent.com/93876043/141815267-63f50b49-d03d-4ed9-b8d5-396471cc402f.png)
 
 I created a new action to run the Python script
 
